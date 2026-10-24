@@ -1,16 +1,36 @@
 # pybroswer
 
-Python 3.12+ browser for **PyDroid**. No Chromium, Playwright, or PC host is required on the phone.
+Python browser for **PyDroid**. No Chromium, Playwright, or PC host is required on the phone.
 
 `Browser.launch()` fetches pages with httpx and parses HTML. The same API also works with remote Chromium.
 
 ## Install (PyDroid)
 
 ```bash
-pip install -e .
+pip install httpx
+pip install https://github.com/prateeknishad305/Pybrowser/archive/refs/heads/master.zip
 ```
 
-Only `httpx` is required. Do not install Playwright.
+If that fails, install httpx first, then:
+
+```bash
+pip install git+https://github.com/prateeknishad305/Pybrowser.git
+```
+
+Import name:
+
+```python
+from pybroswer import Browser
+```
+
+`from pybrowser import Browser` also works.
+
+Check:
+
+```python
+import pybroswer
+print(pybroswer.__version__, pybroswer.__file__)
+```
 
 ## PyDroid usage
 
@@ -37,7 +57,7 @@ with Browser.launch() as browser:
 If you want real Chromium on a PC:
 
 ```bash
-pip install -e ".[chromium]"
+pip install "pybroswer[chromium]"
 playwright install chromium
 python -m pybroswer serve --port 5173
 ```
@@ -58,7 +78,7 @@ In-process on PC: `Browser.launch(engine="chromium")`.
 - Screenshot is a 1x1 placeholder PNG
 - `evaluate` only supports simple `document.title` / `querySelector` expressions
 - Iframe contents are not fetched separately
-- Click coordinates (`x,y`) require Chromium
+- Click coordinates (`x, y`) require Chromium
 
 Forms, links, type/press/select, cookies, and redirects work.
 

@@ -1,18 +1,20 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "pybroswer"
-version = "0.3.0"
-description = "Python 3.12+ browser for PyDroid. Works on phone without Chromium or a PC host."
+version = "0.3.1"
+description = "Python browser for PyDroid. Works on phone without Chromium or a PC host."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "pybroswer" }]
-keywords = ["playwright", "chromium", "browser", "remote", "automation"]
+authors = [{ name = "Hacker78" }]
+keywords = ["playwright", "chromium", "browser", "pydroid", "remote", "automation"]
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Typing :: Typed",
@@ -33,18 +35,14 @@ dev = [
 pybroswer = "pybroswer.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/prateeknishad305/chromium-remote-api"
+Homepage = "https://github.com/prateeknishad305/Pybrowser"
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/pybroswer"]
+[tool.setuptools.package-dir]
+"" = "src"
 
-[tool.hatch.build.targets.wheel.sources]
-src = ""
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
-
-[tool.ruff]
-line-length = 100
-target-version = "py312"

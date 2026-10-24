@@ -1,4 +1,4 @@
-"""Python 3.12+ browser for PyDroid. HTTP engine in-app; optional remote Chromium."""
+"""Python browser for PyDroid. HTTP engine in-app; optional remote Chromium."""
 
 from pybroswer.client import Browser
 from pybroswer.exceptions import ActionFailed, ApiError, EngineError, PyBroswerError, SessionNotFound
@@ -37,4 +37,4 @@ __all__ = [
     "__version__",
 ]
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"

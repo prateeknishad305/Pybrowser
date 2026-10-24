@@ -10,6 +10,9 @@ from pybroswer import ActionFailed, Browser, FrameTarget, SessionNotFound, Uploa
 
 def test_version():
     assert __version__
+    import pybrowser
+
+    assert pybrowser.Browser is Browser
 
 
 def test_connect_alias():

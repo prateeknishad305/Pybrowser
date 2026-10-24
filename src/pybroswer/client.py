@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Self
+from typing import Any
 
 from pybroswer._http import HttpTransport, Transport
 from pybroswer.models import (
@@ -139,7 +139,7 @@ class Browser:
             body["height"] = height
         return snapshot_from(self._http.request("POST", "/api/v1/browse", json=body))
 
-    def __enter__(self) -> Self:
+    def __enter__(self) -> Browser:
         return self
 
     def __exit__(self, *args: object) -> None:
